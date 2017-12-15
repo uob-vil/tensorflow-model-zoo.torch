@@ -7,7 +7,7 @@ import yaml
 
 class BNInception(nn.Module):
     def __init__(self, model_path='tf_model_zoo/bninception/bn_inception.yaml', num_classes=101,
-                       weight_url='https://yjxiong.blob.core.windows.net/models/bn_inception-9f5701afb96c8044.pth'):
+                       weights=None):
         super(BNInception, self).__init__()
 
         manifest = yaml.load(open(model_path))
@@ -32,9 +32,12 @@ class BNInception(nn.Module):
                 channel = sum([self._channel_dict[x] for x in in_var])
                 self._channel_dict[out_var[0]] = channel
 
-        self.load_state_dict(torch.utils.model_zoo.load_url(weight_url))
+        if weights is None:
+            self.load_state_dict(torch.utils.model_zoo.load_url('https://yjxiong.blob.core.windows.net/models/bn_inception-9f5701afb96c8044.pth'))
+        else:
+            self.load_state_dict(weights)
 
-    def forward(self, input):
+    def forward(self, input, output=None):
         data_dict = dict()
         data_dict[self._op_list[0][-1]] = input
 
@@ -58,7 +61,10 @@ class BNInception(nn.Module):
                     for x in op[-1]:
                         print(x,data_dict[x].size())
                     raise
-        return data_dict[self._op_list[-1][2]]
+        if output is None:
+            return data_dict[self._op_list[-1][2]]
+        else:
+            return data_dict[output]
 
 
 class InceptionV3(BNInception):
