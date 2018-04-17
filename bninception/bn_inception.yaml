@@ -552,7 +552,7 @@ layers:
 - attrs: {kernel_size: 7, mode: ave, stride: 1}
   expr: global_pool<=Pooling<=inception_5b_output
   id: global_pool
-  #- attrs: {num_output: 1000}
-  #  expr: fc_action<=InnerProduct<=global_pool
-  #  id: fc
+- attrs: {num_output: 1000}
+  expr: fc_action<=InnerProduct<=global_pool
+  id: fc
 name: BN-Inception

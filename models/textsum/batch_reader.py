@@ -84,9 +84,9 @@ class Batcher(object):
     """Returns a batch of inputs for seq2seq attention model.
 
     Returns:
-      enc_batch: A batch of encoder inputs [batch_size, hps.enc_timestamps].
-      dec_batch: A batch of decoder inputs [batch_size, hps.dec_timestamps].
-      target_batch: A batch of targets [batch_size, hps.dec_timestamps].
+      enc_batch: A batch of encoder inputs [batch_size, hps.enc_times].
+      dec_batch: A batch of decoder inputs [batch_size, hps.dec_times].
+      target_batch: A batch of targets [batch_size, hps.dec_times].
       enc_input_len: encoder input lengths of the batch.
       dec_input_len: decoder input lengths of the batch.
       loss_weights: weights for loss function, 1 if not padded, 0 if padded.

@@ -65,11 +65,11 @@ class DecodeIO(object):
     """Resets the output files. Must be called once before Write()."""
     if self._ref_file: self._ref_file.close()
     if self._decode_file: self._decode_file.close()
-    timestamp = int(time.time())
+    time = int(time.time())
     self._ref_file = open(
-        os.path.join(self._outdir, 'ref%d'%timestamp), 'w')
+        os.path.join(self._outdir, 'ref%d'%time), 'w')
     self._decode_file = open(
-        os.path.join(self._outdir, 'decode%d'%timestamp), 'w')
+        os.path.join(self._outdir, 'decode%d'%time), 'w')
 
 
 class BSDecoder(object):

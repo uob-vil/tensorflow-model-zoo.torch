@@ -71,14 +71,8 @@ def build_dropout(attr, channels=None, conv_bias=False):
 
 
 LAYER_BUILDER_DICT['Convolution'] = build_conv
-
 LAYER_BUILDER_DICT['Pooling'] = build_pooling
-
 LAYER_BUILDER_DICT['ReLU'] = build_relu
-
 LAYER_BUILDER_DICT['Dropout'] = build_dropout
-
 LAYER_BUILDER_DICT['BN'] = build_bn
-
 LAYER_BUILDER_DICT['InnerProduct'] = build_linear
-
