@@ -36,7 +36,7 @@ class BNInception(nn.Module):
                 self._channel_dict[out_var[0]] = channel
 
         if weights is None:
-            self.load_state_dict(torch.utils.model_zoo.load_url('https://yjxiong.blob.core.windows.net/models/bn_inception-9f5701afb96c8044.pth'))
+            self.load_state_dict(torch.utils.model_zoo.load_url('http://data.lip6.fr/cadene/pretrainedmodels/bn_inception-52deb4733.pth'))
         else:
             self.load_state_dict(weights)
 

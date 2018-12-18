@@ -554,5 +554,5 @@ layers:
   id: global_pool
 - attrs: {num_output: 1000}
   expr: fc_action<=InnerProduct<=global_pool
-  id: fc
+  id: last_linear
 name: BN-Inception
