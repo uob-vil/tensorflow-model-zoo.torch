@@ -13,7 +13,7 @@ class BNInception(nn.Module):
                        weights=None):
         super(BNInception, self).__init__()
 
-        manifest = yaml.load(open(model_path))
+        manifest = yaml.safe_load(open(model_path))
 
         layers = manifest['layers']
 
